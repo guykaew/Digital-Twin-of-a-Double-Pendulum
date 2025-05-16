@@ -8,3 +8,4 @@ A description of each file.
 7. initialdegree20plot.m = iniital theta 1 degree of 20 in data collection.
 8. initialdegree30plot.m = iniital theta 1 degree of 30 in data collection.
 9. noisydatalatest.mat = dataset 2 for noisy predictions must upload both for all the code to work
+10. SensorCode.ino = the arduino code for the instrumentation system
