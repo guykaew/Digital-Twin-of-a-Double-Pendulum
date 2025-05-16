@@ -642,55 +642,55 @@ xlim([-5000 5000])
 ylim([0 3000])
 set(gcf, 'WindowState', 'maximized')
 saveas(gcf,'histogramdistribution.png')
-excelFileName = 'PendulumData.xlsx';
-
-numTrials = 10;  % There are 10 trials for each angle
-
-%--- Angle 13 (data1) ---
-for trial = 1:numTrials
-    % Construct the field names dynamically
-    timeField   = sprintf('Time_%d', trial);
-    theta1Field = sprintf('Theta1_%d', trial);
-    theta2Field = sprintf('Theta2_%d', trial);
-    
-    % Use an index to select rows where both theta1 and theta2 are not NaN.
-    idx = ~isnan(data1.(theta1Field)) & ~isnan(data1.(theta2Field));
-    
-    % Extract the non-NaN data for time and angles
-    t = data1.(timeField)(idx);
-    theta1 = data1.(theta1Field)(idx);
-    theta2 = data1.(theta2Field)(idx);
-    
-    % Compute angular velocities: omega = d(theta)/d(time)
-
-    
-    % Create a table with the extracted data
-    T = table(t, theta1, theta2, omega1, omega2, ...
-        'VariableNames', {'Time', 'Theta1', 'Theta2', 'Omega1', 'Omega2'});
-    
-    % Write the table to an Excel sheet (e.g., "Angle13_Trial1")
-    sheetName = sprintf('Angle13_Trial%d', trial);
-    writetable(T, excelFileName, 'Sheet', sheetName);
-end
-
-% --- Angle 20 (data) ---
-for trial = 1:numTrials
-    timeField   = sprintf('Time_%d', trial);
-    theta1Field = sprintf('Theta1_%d', trial);
-    theta2Field = sprintf('Theta2_%d', trial);
-    
-    idx = ~isnan(data.(theta1Field)) & ~isnan(data.(theta2Field));
-    
-    t = data.(timeField)(idx);
-    theta1 = data.(theta1Field)(idx);
-    theta2 = data.(theta2Field)(idx);
-    
-
-    T = table(t, theta1, theta2, omega1, omega2,'VariableNames', {'Time', 'Theta1', 'Theta2', 'Omega1', 'Omega2'});
-    
-    sheetName = sprintf('Angle20_Trial%d', trial);
-    writetable(T, excelFileName, 'Sheet', sheetName);
-end
+% excelFileName = 'PendulumData.xlsx';
+% 
+% numTrials = 10;  % There are 10 trials for each angle
+% 
+% %--- Angle 13 (data1) ---
+% for trial = 1:numTrials
+%     % Construct the field names dynamically
+%     timeField   = sprintf('Time_%d', trial);
+%     theta1Field = sprintf('Theta1_%d', trial);
+%     theta2Field = sprintf('Theta2_%d', trial);
+% 
+%     % Use an index to select rows where both theta1 and theta2 are not NaN.
+%     idx = ~isnan(data1.(theta1Field)) & ~isnan(data1.(theta2Field));
+% 
+%     % Extract the non-NaN data for time and angles
+%     t = data1.(timeField)(idx);
+%     theta1 = data1.(theta1Field)(idx);
+%     theta2 = data1.(theta2Field)(idx);
+% 
+%     % Compute angular velocities: omega = d(theta)/d(time)
+% 
+% 
+%     % Create a table with the extracted data
+%     T = table(t, theta1, theta2, omega1, omega2, ...
+%         'VariableNames', {'Time', 'Theta1', 'Theta2', 'Omega1', 'Omega2'});
+% 
+%     % Write the table to an Excel sheet (e.g., "Angle13_Trial1")
+%     sheetName = sprintf('Angle13_Trial%d', trial);
+%     writetable(T, excelFileName, 'Sheet', sheetName);
+% end
+% 
+% % --- Angle 20 (data) ---
+% for trial = 1:numTrials
+%     timeField   = sprintf('Time_%d', trial);
+%     theta1Field = sprintf('Theta1_%d', trial);
+%     theta2Field = sprintf('Theta2_%d', trial);
+% 
+%     idx = ~isnan(data.(theta1Field)) & ~isnan(data.(theta2Field));
+% 
+%     t = data.(timeField)(idx);
+%     theta1 = data.(theta1Field)(idx);
+%     theta2 = data.(theta2Field)(idx);
+% 
+% 
+%     T = table(t, theta1, theta2, omega1, omega2,'VariableNames', {'Time', 'Theta1', 'Theta2', 'Omega1', 'Omega2'});
+% 
+%     sheetName = sprintf('Angle20_Trial%d', trial);
+%     writetable(T, excelFileName, 'Sheet', sheetName);
+% end
 %datasaver, ignored for now
 % 
 % % --- Angle 30 (data2) ---
